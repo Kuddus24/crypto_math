@@ -52,16 +52,20 @@ make
 # Run the Main Program
 ./main
 # Run Tests
-# Modular Arithmetic Tests:
-  gcc -o test_modular tests/test_modular.c src/modular_arithmetic.c -Iinclude
-  ./test_modular #verify output
-# Barrett Reduction Test:
-  gcc -o test_barrett tests/test_barrett.c src/barrett_reduction.c src/modular_arithmetic.c -Iinclude
-  ./test_barrett #verify output
+#  Tests:
 
-# Exponentiation Tests:
+ ```bash
+## Modular Arithmetic Tests:
+   gcc -o test_modular tests/test_modular.c src/modular_arithmetic.c -Iinclude
+   ./test_modular 
+ 
+## Barrett Reduction Test:
+  gcc -o test_barrett tests/test_barrett.c src/barrett_reduction.c src/modular_arithmetic.c -Iinclude
+  ./test_barrett
+
+## Exponentiation Tests:
  gcc -o test_exponentiation tests/test_exponentiation.c src/exponentiation.c src/barrett_reduction.c src/modular_arithmetic.c -Iinclude
- ./test_exponentiation #verify output
+ ./test_exponentiation 
 
 
 
