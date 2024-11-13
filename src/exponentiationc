@@ -1,0 +1,86 @@
+
+// Montgomery Ladder for Exponentiation with Barrett Reduction
+// 2 is a generator of Z*_p use use g=2 as base (Check Utility.ipynb)
+void montgomery_ladder_exponentiation(u29* base, u29* exponent, u29* mod, u29* mu, u29* result) {
+    u29 one[WORDS] = {0};
+    one[0] = 1;  // Montgomery representation of 1
+
+    u29 r0[WORDS];  // Initialize R0 = 1 (Montgomery form)
+    u29 r1[WORDS];  // Initialize R1 = base (Montgomery form)
+    memcpy(r0, one, sizeof(one));
+    memcpy(r1, base, sizeof(u29) * WORDS);
+
+    int total_bits = WORDS * 29;
+
+    // Montgomery ladder loop
+    for (int j = total_bits - 1; j >= 0; j--) {
+        // Extract the j-th bit of the exponent
+        u29 bit = (exponent[j / 29] >> (j % 29)) & 1;
+
+        if (bit == 0) {
+            modular_multiply(r1, r0, r1, mod, mu);  // R1 = R0 * R1
+            modular_multiply(r0, r0, r0, mod, mu);  // R0 = (R0)^2
+        } else {
+            modular_multiply(r0, r1, r0, mod, mu);  // R0 = R0 * R1
+            modular_multiply(r1, r1, r1, mod, mu);  // R1 = (R1)^2
+        }
+    }
+
+    // The result is stored in R0
+    memcpy(result, r0, sizeof(u29) * WORDS);
+}
+
+
+
+// Left-to-right modular exponentiation
+void left_to_right_binary_exponentiation(u29* base, u29* exponent, u29* mod,u29* mu,  u29* result) {
+    u29 r0[WORDS];  // R0 = 1
+    u29 r1[WORDS];  // R1 = base
+    u29 one[WORDS] = {0};
+    one[0] = 1;
+
+    memcpy(r0, one, sizeof(one));         // Initialize R0 = 1
+    memcpy(r1, base, sizeof(u29) * WORDS); // Initialize R1 = base
+
+    int total_bits = WORDS * 29;
+
+    for (int j = total_bits - 1; j >= 0; j--) {
+        modular_multiply(r0, r0, r0, mod, mu); // R0 = (R0)^2
+
+        // Check the j-th bit of the exponent
+        u29 bit = (exponent[j / 29] >> (j % 29)) & 1;
+        if (bit == 1) {
+            modular_multiply(r0, r1, r0, mod, mu); // R0 = R0 * R1
+        }
+    }
+
+    memcpy(result, r0, sizeof(u29) * WORDS); // Return R0
+}
+
+
+
+// Right-to-left modular exponentiation
+void right_to_left_binary_exponentiation(u29* base, u29* exponent, u29* mod,u29* mu,  u29* result) {
+    u29 r0[WORDS];  // R0 = 1
+    u29 r1[WORDS];  // R1 = base
+    u29 one[WORDS] = {0};
+    one[0] = 1;
+
+    memcpy(r0, one, sizeof(one));         // Initialize R0 = 1
+    memcpy(r1, base, sizeof(u29) * WORDS); // Initialize R1 = base
+
+    int total_bits = WORDS * 29;
+
+    for (int j = 0; j < total_bits; j++) {
+        // Check the j-th bit of the exponent
+        u29 bit = (exponent[j / 29] >> (j % 29)) & 1;
+
+        if (bit == 1) {
+            modular_multiply(r0, r1, r0, mod, mu); // R0 = R0 * R1
+        }
+        modular_multiply(r1, r1, r1, mod, mu); // R1 = (R1)^2
+    }
+
+    memcpy(result, r0, sizeof(u29) * WORDS); // Return R0
+}
+
