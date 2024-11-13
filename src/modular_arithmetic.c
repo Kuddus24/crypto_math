@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdint.h>
+#include "modular_arithmetic.h"
 #include <string.h>
 
 #define WORDS 10               // Number of 29-bit words for 256-bit integer representation
@@ -91,6 +90,25 @@ void modular_multiply(u29* a, u29* b, u29* result, u29* mod, u29* mu) {
     u29 temp[2 * WORDS] = {0}; // Temporary variable to hold multiplication result
     mult_29bit(a, b, temp);    
     barrett_reduction(temp, mod, mu, result); 
+}
+
+
+// Print function for debugging
+void print_array(const char* label, const u29* arr, int size) {
+    printf("%s: ", label);
+    for (int i = size - 1; i >= 0; i--) {
+        printf("%lu ", (unsigned long)arr[i]);
+    }
+    printf("\n");
+}
+
+// Print function for debugging for barrett
+void print_array_brr(const char* label, const u29* arr, int size) {
+    printf("%s: ", label);
+    for (int i = 0; i < size; i++) {
+        printf("%lu ", (unsigned long)arr[i]);
+    }
+    printf("\n");
 }
 
 
