@@ -43,27 +43,25 @@ With this prime, I implemented efficient modular arithmetic, reduction, and expo
 
 
 ## Build Instructions
-1. Clone the repository:
-   ```bash
+# Clone the repository:
    git clone https://github.com/Kuddus24/crypto_math.git
 
-### Build the Project
-```bash
+# Build the Project
 make
 
-### Run the Main Program
-```bash
+# Run the Main Program
 ./main
-### Run Tests
-
-- **Modular Arithmetic Tests**:
-  ```bash
+# Run Tests
+# Modular Arithmetic Tests:
   gcc -o test_modular tests/test_modular.c src/modular_arithmetic.c -Iinclude
-  ./test_modular
+  ./test_modular #verify output
+# Barrett Reduction Test:
   gcc -o test_barrett tests/test_barrett.c src/barrett_reduction.c src/modular_arithmetic.c -Iinclude
- ./test_barrett
+  ./test_barrett #verify output
+
+# Exponentiation Tests:
  gcc -o test_exponentiation tests/test_exponentiation.c src/exponentiation.c src/barrett_reduction.c src/modular_arithmetic.c -Iinclude
-./test_exponentiation
+ ./test_exponentiation #verify output
 
 
 
