@@ -48,7 +48,7 @@ With this prime, I implemented efficient modular arithmetic, reduction, and expo
 
   ## Build the Project
     ```bash
-   make
+          make
 # Run the Main Program
     ./main
   **Run Tests**
