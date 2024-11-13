@@ -49,11 +49,11 @@ With this prime, I implemented efficient modular arithmetic, reduction, and expo
   ## Build the Project
     ```bash
           make
-# Run the Main Program
-    ./main
-  **Run Tests**
+  **Run the Main Program**
+      ./main
+    **Run Tests**
  
-    ```bash
+  ```bash
 
 ## Modular Arithmetic Tests:
    gcc -o test_modular tests/test_modular.c src/modular_arithmetic.c -Iinclude
