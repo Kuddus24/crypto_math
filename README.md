@@ -46,3 +46,7 @@ With this prime, I implemented efficient modular arithmetic, reduction, and expo
 1. Clone the repository:
    ```bash
    git clone https://github.com/Kuddus24/crypto_math.git
+
+2. **Build the project** using the provided `Makefile`:
+   ```bash
+   make
