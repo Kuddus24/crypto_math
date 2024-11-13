@@ -85,3 +85,12 @@ int geq(const u29* a, const u29* b) {
 }
 
 
+
+// Modular multiplication with Barrett reduction
+void modular_multiply(u29* a, u29* b, u29* result, u29* mod, u29* mu) {
+    u29 temp[2 * WORDS] = {0}; // Temporary variable to hold multiplication result
+    mult_29bit(a, b, temp);    
+    barrett_reduction(temp, mod, mu, result); 
+}
+
+
