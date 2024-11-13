@@ -46,15 +46,16 @@ With this prime, I implemented efficient modular arithmetic, reduction, and expo
 # Clone the repository:
    git clone https://github.com/Kuddus24/crypto_math.git
 
-# Build the Project
+**Build the Project**
 make
 
-# Run the Main Program
+**Run the Main Program**
 ./main
-# Run Tests
-#  Tests:
+**Run Tests**
 
- ```bash
+  ```bash
+
+
 ## Modular Arithmetic Tests:
    gcc -o test_modular tests/test_modular.c src/modular_arithmetic.c -Iinclude
    ./test_modular 
