@@ -57,3 +57,22 @@ void parse_to_int(char* hex, u29* bignum) {
                 ^ hextoint(hex[59]) << 16 ^ hextoint(hex[58]) << 20
                 ^ hextoint(hex[57]) << 24 ^ (hextoint(hex[56]) & 0x1) << 28;
 }
+
+
+
+
+int main() {
+    char hex[65] = "e92e40ad6f281c8a082afdc49e1372659455bec8ceea043a614c835b7fe9eff5";
+    u29 bignum[N] = {0};
+
+    printf("Parsing predefined hexadecimal string:\n%s\n", hex);
+
+    parse_to_int(hex, bignum);
+
+    printf("Converted big integer array:\n");
+    for (int i = 0; i < N; i++) {
+        printf("bignum[%d] = %llu\n", i, bignum[i]);
+    }
+
+    return EXIT_SUCCESS;
+}
