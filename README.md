@@ -10,6 +10,22 @@ This project was developed to perform modular arithmetic and exponentiation with
 
 With this prime, I implemented efficient modular arithmetic, reduction, and exponentiation techniques tailored for large integers in cryptographic applications.
 ### Features
+
+# BigNumHexParser
+
+A C program to parse 64-character hexadecimal strings into big integer arrays. The program is designed to handle cryptographic operations where numbers are represented in base 2^29.
+
+## Features
+- Parse a 64-character hexadecimal string into a big integer array of 29-bit words.
+- Handles invalid hexadecimal characters gracefully.
+- Includes test cases for validation.
+
+## Usage
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<username>/BigNumHexParser.git
+   cd BigNumHexParser
+
 ## Modular Arithmetic
 
 - **Addition**: Handles carry normalization within a 29-bit word system.
