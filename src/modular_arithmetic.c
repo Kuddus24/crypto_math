@@ -43,7 +43,7 @@ void add_29bit(const u29* a, const u29* b, u29* result, int length) {
 
 
 
-// Modular subtraction using 2's complement for 29-bit base
+//Modular Substruction
 void sub_29bit(const u29* a, const u29* b, u29* result, int length) {
     uint64_t carry = 1;  // Start with carry = 1 for the 2's complement of b
 
@@ -52,7 +52,13 @@ void sub_29bit(const u29* a, const u29* b, u29* result, int length) {
         result[i] = diff % BASE;   // Keep only the lowest 29 bits
         carry = diff / BASE;       // Set carry for the next word
     }
-}
+    
+    // Check if result is negative (borrow occurred)
+    if (carry == 0) { // Borrow indicates a negative result
+        // Add the modulus to ensure the result is positive
+        add_29bit(result, mod, result, length);
+    }
+ }
 
 
 
