@@ -44,6 +44,38 @@ A C program to parse 64-character hexadecimal strings into big integer arrays. T
 - **Montgomery Ladder Exponentiation**: Secure against side-channel attacks.
 - **Left-to-Right Binary Exponentiation**: Computes `g^k mod p` from the most significant bit (MSB) to the least significant bit (LSB).
 - **Right-to-Left Binary Exponentiation**: Computes `g^k mod p` from the least significant bit (LSB) to the most significant bit (MSB).
+
+- # **ECDH: Elliptic Curve Diffie-Hellman Implementation**
+
+This repository features an implementation of the **Elliptic Curve Diffie-Hellman (ECDH)** protocol in C. ECDH is a cryptographic method used for secure key exchange. The project includes efficient modular arithmetic operations, elliptic curve point operations, and utilities for cryptographic computations.
+
+---
+
+## **Features**
+
+### **1. Efficient Modular Arithmetic**
+- Implementation of key modular arithmetic operations using **Barrett reduction**, including:
+  - **Modular Addition**: Handles addition of large numbers modulo a prime.
+  - **Modular Subtraction**: Subtracts large numbers modulo a prime.
+  - **Modular Multiplication**: Multiplies large numbers modulo a prime.
+  - **Modular Inversion**: Computes modular inverses using Fermat's Little Theorem.
+
+### **2. Elliptic Curve Operations**
+- **Point Addition**:
+  - Computes the addition of two points on an elliptic curve.
+- **Point Doubling**:
+  - Doubles a point on an elliptic curve efficiently.
+- **Scalar Multiplication**:
+  - Supports scalar multiplication of a point using:
+    - **Left-to-Right Binary Method**
+    - **Right-to-Left Binary Method**
+
+### **3. ECDH Protocol**
+- **Key Pair Generation**:
+  - Computes public keys using scalar multiplication of the private key and the curve's base point.
+- **Shared Secret Computation**:
+  - Derives a shared secret using the private key and the other party’s public key, enabling secure
+
   ## Build Instructions
 
 ### Prerequisites
