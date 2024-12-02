@@ -20,11 +20,7 @@ A C program to parse 64-character hexadecimal strings into big integer arrays. T
 - Handles invalid hexadecimal characters gracefully.
 - Includes test cases for validation.
 
-## Usage
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<username>/BigNumHexParser.git
-   cd BigNumHexParser
+
 
 ## Modular Arithmetic
 
@@ -70,11 +66,6 @@ This repository features an implementation of the **Elliptic Curve Diffie-Hellma
     - **Left-to-Right Binary Method**
     - **Right-to-Left Binary Method**
 
-### **3. ECDH Protocol**
-- **Key Pair Generation**:
-  - Computes public keys using scalar multiplication of the private key and the curve's base point.
-- **Shared Secret Computation**:
-  - Derives a shared secret using the private key and the other party’s public key, enabling secure
 
   ## Build Instructions
 
